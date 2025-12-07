@@ -43,7 +43,7 @@ print()
 # Test CSV loading
 print(f"[3] CSV Loading:")
 try:
-    CSV_PATH = "./adir_liav_http_input.csv"
+    CSV_PATH = "./input_messages.csv"
     messages_df = pd.read_csv(CSV_PATH)
     print(f"    ✓ Loaded {len(messages_df)} messages from {CSV_PATH}")
     print(f"    Columns: {list(messages_df.columns)}")
@@ -231,4 +231,5 @@ print("4. Run this script or the Jupyter notebook")
 print()
 print("✓ All tests completed!")
 print("="*60)
+
 
