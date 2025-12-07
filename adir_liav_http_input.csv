@@ -1,0 +1,21 @@
+msg_id,app_protocol,src_port,dst_port,message,timestamp
+1,HTTP,52001,80,GET / HTTP/1.1,0.001
+2,HTTP,52001,80,Host: www.example.com,0.002
+3,HTTP,52001,80,User-Agent: Mozilla/5.0,0.003
+4,HTTP,52001,80,Accept: text/html,0.004
+5,HTTP,52001,80,,0.005
+6,HTTP,80,52001,HTTP/1.1 200 OK,0.050
+7,HTTP,80,52001,Content-Type: text/html,0.051
+8,HTTP,80,52001,Content-Length: 1256,0.052
+9,HTTP,80,52001,,0.053
+10,HTTP,80,52001,<html><body>Hello World</body></html>,0.100
+11,HTTP,52002,443,GET /api/users HTTP/1.1,0.200
+12,HTTP,52002,443,Host: api.example.com,0.201
+13,HTTP,52002,443,Authorization: Bearer token123,0.202
+14,HTTP,443,52002,HTTP/1.1 200 OK,0.250
+15,HTTP,443,52002,{"users": ["Adir Buksila" - "Liav Wizman"]},0.300
+16,DNS,54321,53,Query: www.google.com,0.400
+17,DNS,53,54321,Response: 142.250.72.142,0.450
+18,HTTP,52003,80,POST /login HTTP/1.1,0.500
+19,HTTP,52003,80,Content-Type: application/json,0.501
+20,HTTP,52003,80,{"username": "student" - "password": "network123"},0.502
