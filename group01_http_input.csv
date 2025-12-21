@@ -1,0 +1,22 @@
+msg_id,app_protocol,src_app,dst_app,message,timestamp
+1,HTTP,client_browser,web_server,GET /index.html HTTP/1.1,0.001
+2,HTTP,client_browser,web_server,Host: www.example.com,0.002
+3,HTTP,client_browser,web_server,User-Agent: Mozilla/5.0,0.003
+4,HTTP,client_browser,web_server,Accept: text/html,0.004
+5,HTTP,client_browser,web_server,,0.005
+6,HTTP,web_server,client_browser,HTTP/1.1 200 OK,0.050
+7,HTTP,web_server,client_browser,Content-Type: text/html,0.051
+8,HTTP,web_server,client_browser,Content-Length: 1256,0.052
+9,HTTP,web_server,client_browser,,0.053
+10,HTTP,web_server,client_browser,<html><body>Hello World</body></html>,0.100
+11,HTTP,api_client,api_server,GET /api/users HTTP/1.1,0.200
+12,HTTP,api_client,api_server,Host: api.example.com,0.201
+13,HTTP,api_client,api_server,Authorization: Bearer token123,0.202
+14,HTTP,api_server,api_client,HTTP/1.1 200 OK,0.250
+15,HTTP,api_server,api_client,{"users": ["Adir Buskila" and "Liav Wizman"]},0.300
+16,DNS,dns_client,dns_server,Query: www.google.com,0.400
+17,DNS,dns_server,dns_client,Response: 142.250.72.142,0.450
+18,HTTP,login_client,auth_server,POST /login HTTP/1.1,0.500
+19,HTTP,login_client,auth_server,Content-Type: application/json,0.501
+20,HTTP,login_client,auth_server,{"username": "student" and "password": "network123"},0.502
+

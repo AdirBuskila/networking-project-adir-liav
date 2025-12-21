@@ -1,0 +1,63 @@
+# ═══════════════════════════════════════════════════════════
+# CYBER CHAT - Git Ignore
+# ═══════════════════════════════════════════════════════════
+
+# Windows
+desktop.ini
+*.ini
+Thumbs.db
+ehthumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.env
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Logs
+*.log
+cyber_chat.log
+
+# Chat history exports (optional - uncomment to ignore)
+# chat_history/
+
+# Server log exports
+server_logs_*.txt
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Wireshark captures (large files - keep local only)
+*.pcap
+*.pcapng
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
