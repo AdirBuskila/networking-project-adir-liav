@@ -625,8 +625,8 @@ class CyberClient:
             
             # Parse "username(status)" format
             if "(" in user_entry:
-                username = user_entry.split("(")[0]
-                status = user_entry.split("(")[1].rstrip(")")
+                username = user_entry.split("(")[0].strip()
+                status = user_entry.split("(")[1].rstrip(")").strip()
             else:
                 username = user_entry
                 status = STATUS_ONLINE
