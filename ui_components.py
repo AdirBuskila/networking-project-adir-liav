@@ -623,7 +623,6 @@ class EmojiPicker(tk.Toplevel):
         self.geometry("280x180")
         self.configure(bg=COLORS['bg_card'])
         self.transient(parent)
-        self.overrideredirect(True)  # No window decorations
         
         self.on_select = on_select
         
@@ -643,8 +642,24 @@ class EmojiPicker(tk.Toplevel):
                            command=lambda e=emoji: self._select(e))
             btn.grid(row=i // 8, column=i % 8, padx=1, pady=1)
         
-        # Close when clicking outside
-        self.bind('<FocusOut>', lambda e: self.destroy())
+        # Grab focus and close when focus is lost
+        self.grab_set()
+        self.focus_force()
+        self.bind('<Escape>', lambda e: self.destroy())
+        self.bind('<FocusOut>', self._on_focus_out)
+    
+    def _on_focus_out(self, event):
+        """Close picker when focus is lost (clicked outside)."""
+        # Small delay to allow button clicks to register
+        self.after(100, self._check_focus)
+    
+    def _check_focus(self):
+        """Check if we should close."""
+        try:
+            if not self.focus_get():
+                self.destroy()
+        except tk.TclError:
+            pass  # Window already destroyed
     
     def _select(self, emoji: str):
         """Handle emoji selection."""

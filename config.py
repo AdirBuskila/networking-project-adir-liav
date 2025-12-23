@@ -15,41 +15,12 @@ BUFFER_SIZE = 4096
 PING_INTERVAL = 5  # seconds
 
 # ═══════════════════════════════════════════════════════════════
-# ENCRYPTION KEY (In production, use key exchange!)
-# ═══════════════════════════════════════════════════════════════
-
-ENCRYPTION_KEY = b'CyberChat2024Key'  # 16 bytes for AES-128
-ENABLE_ENCRYPTION = True
-
-# ═══════════════════════════════════════════════════════════════
 # USER STATUS TYPES
 # ═══════════════════════════════════════════════════════════════
 
 STATUS_ONLINE = 'online'
 STATUS_AWAY = 'away'
 STATUS_BUSY = 'busy'
-
-# ═══════════════════════════════════════════════════════════════
-# MESSAGE TYPES (Protocol)
-# ═══════════════════════════════════════════════════════════════
-
-MSG_TYPES = {
-    'WELCOME': 'WELCOME',
-    'OK': 'OK',
-    'ERROR': 'ERROR',
-    'MSG': 'MSG',
-    'SENT': 'SENT',
-    'SYSTEM': 'SYSTEM',
-    'USERS': 'USERS',
-    'TYPING': 'TYPING',
-    'STOP_TYPING': 'STOP_TYPING',
-    'PING': 'PING',
-    'PONG': 'PONG',
-    'STATUS': 'STATUS',
-    'KICK': 'KICK',
-    'BROADCAST': 'BROADCAST',
-    'HISTORY': 'HISTORY',
-}
 
 # ═══════════════════════════════════════════════════════════════
 # 🎨 CYBERPUNK COLOR SCHEME
