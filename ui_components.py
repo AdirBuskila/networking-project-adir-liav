@@ -637,8 +637,9 @@ class EmojiPicker(tk.Toplevel):
         
         for i, emoji in enumerate(self.EMOJIS):
             btn = tk.Button(frame, text=emoji, font=('Segoe UI Emoji', 14),
-                           bg=COLORS['bg_light'], relief='flat',
-                           cursor='hand2', width=2,
+                           bg='#ffffff', fg='#000000',
+                           activebackground='#e0e0e0',
+                           relief='flat', cursor='hand2', width=2,
                            command=lambda e=emoji: self._select(e))
             btn.grid(row=i // 8, column=i % 8, padx=1, pady=1)
         
