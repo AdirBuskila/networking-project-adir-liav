@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - Configuration Module
 TCP/IP Network Project
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 """
 
 # ═══════════════════════════════════════════════════════════════

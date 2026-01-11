@@ -1,6 +1,6 @@
 # ⚡ CYBER CHAT - TCP/IP Network Project ⚡
 
-**Students:** Adir Buskila & Liav Wizman  
+**Students:** Adir Buskila & Liav Weizman  
 **Course:** Computer Networks  
 **Date:** December 2025
 
@@ -216,7 +216,7 @@ All code was reviewed, understood, and tested by the students.
 
 ## 👥 Authors
 
-**Adir Buskila & Liav Wizman**  
+**Adir Buskila & Liav Weizman**  
 Computer Networks Course, December 2025
 
 ---
