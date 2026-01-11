@@ -1,146 +1,128 @@
-# ⚡ CYBER CHAT - TCP/IP Network Project ⚡
+# Cyber Chat - TCP/IP Network Project
 
-**Students:** Adir Buskila & Liav Weizman  
-**Course:** Computer Networks  
-**Date:** December 2025
-
----
-
-## 📋 Project Overview
-
-This project demonstrates practical understanding of **TCP/IP networking** through two parts:
-
-1. **Part 1:** Packet Encapsulation - Creating TCP/IP packets and capturing with Wireshark
-2. **Part 2:** Chat Application - Multi-client TCP chat system with GUI
+**מגישים:** אדיר בוסקילה 209487727 וליאב ויצמן 324926898  
+**קורס:** רשתות תקשורת מחשבים  
+**תאריך:** ינואר 2026
 
 ---
 
-## 📁 Project Structure
+## סקירת הפרויקט
 
-| File | Description |
-|------|-------------|
-| **Part 1 - Encapsulation** ||
-| `group01_http_input.csv` | 📄 CSV with 20 application layer messages (HTTP/DNS) |
-| `tcp_ip_encapsulation.ipynb` | 📓 Jupyter notebook for packet encapsulation |
-| **Part 2 - Chat Application** ||
-| `main.py` | 🚀 Entry point - Launcher GUI |
-| `server.py` | 🖥️ TCP Server - handles 50+ concurrent clients |
-| `client.py` | 💬 TCP Client - GUI chat interface |
-| `config.py` | ⚙️ Configuration and constants |
-| `utils.py` | 🛠️ Utilities, logging, validation |
-| `ui_components.py` | 🎨 Reusable UI widgets |
+פרויקט זה מדגים הבנה מעשית של תקשורת TCP/IP ומחולק לשני חלקים:
+
+1. **חלק 1:** אריזת מנות - בניית חבילות TCP/IP ולכידה ב-Wireshark
+2. **חלק 2:** יישום צ'אט - מערכת צ'אט מרובת לקוחות עם GUI
 
 ---
 
-## 🚀 Quick Start
+## מבנה הפרויקט
 
-### Part 1: Packet Encapsulation
+| קובץ | תיאור |
+|------|-------|
+| **חלק 1 - אריזת מנות** ||
+| `group209487727_http_input.csv` | קובץ CSV עם 20 הודעות HTTP/DNS |
+| `raw_tcp_ip_notebook_fallback_annotated-v1.ipynb` | מחברת Jupyter לאריזת מנות |
+| `part1.pcap` | לכידת Wireshark של חלק 1 |
+| **חלק 2 - יישום צ'אט** ||
+| `main.py` | נקודת כניסה - בחירת שרת/לקוח |
+| `server.py` | שרת TCP - תומך ב-50+ לקוחות |
+| `client.py` | לקוח TCP עם ממשק גרפי |
+| `config.py` | הגדרות ופרמטרים |
+| `utils.py` | פונקציות עזר, לוגים, ולידציה |
+| `ui_components.py` | רכיבי UI לשימוש חוזר |
+| `part2.pcap` | לכידת Wireshark של תעבורת הצ'אט |
+| **תיעוד** ||
+| `דוח_מסכם.md` | דוח חלק 1 - אריזת מנות |
+| `דוח_מסכם_חלק_2.md` | דוח חלק 2 - יישום וניתוח |
+| `Screenshot_1-4.png` | צילומי מסך |
+
+---
+
+## התקנה והרצה
+
+### חלק 1: אריזת מנות
 ```bash
-# Install dependencies
 pip install pandas scapy
-
-# Run Jupyter notebook
-jupyter notebook networking-project-adir-liav\tcp_ip_encapsulation.ipynb
+jupyter notebook raw_tcp_ip_notebook_fallback_annotated-v1.ipynb
 ```
 
-### Part 2: Chat Application
+### חלק 2: יישום צ'אט
 ```bash
-# Option 1: GUI Launcher
+# GUI Launcher
 python main.py
 
-# Option 2: Direct modes
-python main.py server    # Start server
-python main.py client    # Start client
+# או ישירות
+python main.py server    # הפעלת שרת
+python main.py client    # הפעלת לקוח
 ```
 
 ---
 
-## 📊 Part 1 - Packet Encapsulation
+## חלק 1 - אריזת מנות
 
-### CSV Input File (`group01_http_input.csv`)
-Contains 20 application layer messages with required fields:
-- `msg_id` - Message identifier
-- `app_protocol` - Protocol (HTTP, DNS)
-- `src_app` - Source application
-- `dst_app` - Destination application
-- `message` - Message content
-- `timestamp` - Time offset
+### קובץ CSV
+הקובץ `group209487727_http_input.csv` מכיל 20 הודעות עם השדות:
+- `msg_id`, `app_protocol`, `src_app`, `dst_app`, `message`, `timestamp`
 
-### Jupyter Notebook Process
-1. **Load CSV** - Read application messages
-2. **Validate Schema** - Check required columns
-3. **Build IP Header** - Version, TTL, checksum, addresses
-4. **Build TCP Header** - Ports, sequence numbers, flags
-5. **Encapsulate** - Combine layers into packets
-6. **Send** - Transmit via raw sockets (Linux/macOS) or Scapy (Windows)
-7. **Capture** - Record in Wireshark
+### תהליך
+1. טעינת ההודעות מה-CSV
+2. בניית IP Header
+3. בניית TCP Header
+4. שליחה באמצעות Scapy
+5. לכידה ב-Wireshark
 
-### Wireshark Capture
-1. Open Wireshark → Select **Npcap Loopback Adapter**
-2. Start capture
-3. Run notebook cells to send packets
-4. Apply filter: `tcp.port == 12345`
-5. Stop and save as `.pcap`
+### לכידה ב-Wireshark
+- ממשק: Npcap Loopback Adapter
+- מסנן: `tcp.port == 12345`
+- קובץ: `part1.pcap`
 
 ---
 
-## 💬 Part 2 - Chat Application
+## חלק 2 - יישום צ'אט
 
-### Technical Requirements Met
+### דרישות טכניות שמומשו
 
-| Requirement | Implementation |
-|-------------|----------------|
-| TCP Protocol | `socket.SOCK_STREAM` |
-| Bidirectional Communication | Server ↔ Multiple Clients |
-| Handle ≥5 Concurrent Clients | `MAX_CLIENTS = 50` with threading |
-| Server Mediates Between Clients | Broadcast + Private DM routing |
-| Real-time Messaging | Threaded receive loops |
-| Sockets Only | Pure `socket` library |
-| Multi-threading | `threading.Thread` per client |
-| Error Handling | Try/except + graceful cleanup |
-| Clean Code | 6 modular, documented files |
-| **BONUS: GUI** | Full Tkinter interface |
+| דרישה | מימוש |
+|-------|-------|
+| פרוטוקול TCP | `socket.SOCK_STREAM` |
+| תקשורת דו-כיוונית | שרת ↔ מספר לקוחות |
+| 5+ לקוחות במקביל | `MAX_CLIENTS = 50` עם Threading |
+| שרת כמתווך | Broadcast + הודעות פרטיות |
+| Sockets בלבד | ספריית `socket` |
+| טיפול בשגיאות | Try/except + ניקוי |
+| קוד מתועד | 6 קבצים מודולריים |
+| **בונוס: GUI** | ממשק Tkinter מלא |
 
-### Server Features
-- 📊 Live statistics (users, messages, uptime, data TX/RX)
-- 📜 Color-coded server logs
-- 👑 Admin controls (kick users, broadcast announcements)
-- 📤 Export logs to file
-- 👥 User status tracking (Online/Away/Busy)
+### תכונות השרת
+- סטטיסטיקות בזמן אמת
+- לוגים צבעוניים
+- בקרת מנהל (kick, broadcast)
+- ייצוא לוגים
 
-### Client Features
-- 🎨 Cyberpunk-themed GUI
-- 👤 User status (Online/Away/Busy)
-- 🔒 Private messages (click user to DM)
-- 😊 Emoji picker (40+ emojis)
-- 📥 Export chat history
-- ⌨️ Chat commands (`/help`, `/status`, `/dm`, `/clear`, `/save`)
+### תכונות הלקוח
+- ממשק Cyberpunk
+- סטטוס משתמש (Online/Away/Busy)
+- הודעות פרטיות
+- בחירת אימוג'ים
+- פקודות צ'אט (`/help`, `/status`, `/dm`, `/clear`, `/save`)
 
 ---
 
-## ⌨️ Client Commands
+## פקודות
 
-| Command | Description |
-|---------|-------------|
-| `/help` | Show available commands |
-| `/status <online\|away\|busy>` | Change your status |
-| `/dm <user> <message>` | Send private message |
-| `/clear` | Clear chat window |
-| `/save` | Export chat history |
-
-### Protocol Commands
-| Command | Description |
-|---------|-------------|
-| `LIST` | Get online users |
-| `TO:user:message` | Send private message |
-| `STATUS:away` | Change status |
-| `QUIT` | Disconnect |
+| פקודה | תיאור |
+|-------|-------|
+| `/help` | הצגת פקודות |
+| `/status <online\|away\|busy>` | שינוי סטטוס |
+| `/dm <user> <msg>` | הודעה פרטית |
+| `/clear` | ניקוי חלון |
+| `/save` | ייצוא היסטוריה |
 
 ---
 
-## 🔧 Configuration
+## הגדרות
 
-Edit `config.py` to customize:
+ניתן לשנות ב-`config.py`:
 
 ```python
 DEFAULT_HOST = '127.0.0.1'
@@ -151,77 +133,61 @@ BUFFER_SIZE = 4096
 
 ---
 
-## 🏗️ Architecture
+## ארכיטקטורה
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                         main.py                              │
-│                    (Launcher GUI)                            │
-└─────────────────────┬───────────────────────┬───────────────┘
-                      │                       │
-          ┌───────────▼───────────┐ ┌────────▼────────┐
-          │      server.py        │ │    client.py     │
-          │  (TCP Server + GUI)   │ │ (TCP Client+GUI) │
-          └───────────┬───────────┘ └────────┬────────┘
-                      │                       │
-          ┌───────────▼───────────────────────▼───────────┐
-          │              ui_components.py                  │
-          │         (Reusable styled widgets)              │
-          └───────────────────────┬───────────────────────┘
-                                  │
-          ┌───────────────────────▼───────────────────────┐
-          │         config.py      │      utils.py         │
-          │        (Settings)      │     (Helpers)         │
-          └───────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│                    main.py                       │
+│                 (Launcher GUI)                   │
+└──────────────────┬──────────────┬───────────────┘
+                   │              │
+       ┌───────────▼────┐   ┌─────▼──────────┐
+       │   server.py    │   │   client.py    │
+       │  (TCP Server)  │   │  (TCP Client)  │
+       └───────────┬────┘   └─────┬──────────┘
+                   │              │
+       ┌───────────▼──────────────▼───────────┐
+       │         ui_components.py              │
+       │        (Styled Widgets)               │
+       └───────────────────┬──────────────────┘
+                           │
+       ┌───────────────────▼──────────────────┐
+       │     config.py     │     utils.py      │
+       └──────────────────────────────────────┘
 ```
 
 ---
 
-## 📂 Output Files
+## תוצרים להגשה
 
-| File | Location | Description |
-|------|----------|-------------|
-| `cyber_chat.log` | Project folder | Application log |
-| `chat_history/*.txt` | chat_history/ | Exported conversations |
-| `server_logs_*.txt` | Project folder | Server log exports |
+### חלק 1
+- [x] `group209487727_http_input.csv`
+- [x] `raw_tcp_ip_notebook_fallback_annotated-v1.ipynb`
+- [x] `part1.pcap`
+- [x] `דוח_מסכם.md`
 
----
-
-## ✅ Deliverables Checklist
-
-### Part 1 - Packet Encapsulation
-- [x] `group01_http_input.csv` - Application messages (20 rows)
-- [x] `tcp_ip_encapsulation.ipynb` - Executed notebook with outputs
-- [ ] Wireshark `.pcap` capture file
-
-### Part 2 - Chat Application
-- [x] `server.py` - Multi-threaded TCP server
-- [x] `client.py` - GUI chat client
-- [x] Supporting modules (`main.py`, `config.py`, `utils.py`, `ui_components.py`)
-- [ ] Chat traffic `.pcap` capture file
+### חלק 2
+- [x] `server.py`, `client.py`, `main.py`, `config.py`, `utils.py`, `ui_components.py`
+- [x] `part2.pcap`
+- [x] `דוח_מסכם_חלק_2.md`
 
 ---
 
-## 🤖 AI Usage
+## שימוש ב-AI
 
-This project was developed with assistance from **Claude (Anthropic)** for:
-- Code structure and organization
-- Debugging and error handling
-- Documentation and comments
-- UI/UX improvements
+הפרויקט פותח בסיוע Claude (Anthropic) עבור:
+- תכנון הקוד
+- דיבוג
+- עיצוב UI
+- תיעוד
 
-All code was reviewed, understood, and tested by the students.
-
----
-
-## 👥 Authors
-
-**Adir Buskila & Liav Weizman**  
-Computer Networks Course, December 2025
+כל הקוד נבדק והובן על ידי הסטודנטים.
 
 ---
 
-<p align="center">
-  <b>⚡ CYBER CHAT ⚡</b><br>
-  <i>TCP/IP Network Project</i>
-</p>
+## מגישים
+
+**אדיר בוסקילה 209487727**  
+**ליאב ויצמן 324926898**
+
+קורס רשתות תקשורת מחשבים, ינואר 2026
