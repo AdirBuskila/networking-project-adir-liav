@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - Client Module
 Enhanced Chat Client with Modern Features
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 """
 
 import socket
@@ -90,7 +90,7 @@ class CyberClient:
                 font=FONTS['small'], fg=COLORS['text_secondary'],
                 bg=COLORS['bg_card']).pack()
         
-        tk.Label(card, text="by Adir Buskila & Liav Wizman",
+        tk.Label(card, text="by Adir Buskila & Liav Weizman",
                 font=FONTS['small'], fg=COLORS['accent_pink'],
                 bg=COLORS['bg_card']).pack(pady=(5, 30))
         

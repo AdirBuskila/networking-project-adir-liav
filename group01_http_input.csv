@@ -13,7 +13,7 @@ msg_id,app_protocol,src_app,dst_app,message,timestamp
 12,HTTP,api_client,api_server,Host: api.example.com,0.201
 13,HTTP,api_client,api_server,Authorization: Bearer token123,0.202
 14,HTTP,api_server,api_client,HTTP/1.1 200 OK,0.250
-15,HTTP,api_server,api_client,{"users": ["Adir Buskila" and "Liav Wizman"]},0.300
+15,HTTP,api_server,api_client,{"users": ["Adir Buskila" and "Liav Weizman"]},0.300
 16,DNS,dns_client,dns_server,Query: www.google.com,0.400
 17,DNS,dns_server,dns_client,Response: 142.250.72.142,0.450
 18,HTTP,login_client,auth_server,POST /login HTTP/1.1,0.500

@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - Utilities Module
 Logging, helpers, and common utilities
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 """
 
 import os

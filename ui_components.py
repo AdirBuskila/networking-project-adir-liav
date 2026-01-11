@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - UI Components Module
 Reusable tkinter widgets with cyberpunk styling
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 """
 
 import tkinter as tk

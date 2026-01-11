@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - Main Entry Point
 TCP/IP Network Project
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 
 Run this file to launch the application.
 Choose between Server or Client mode.
@@ -91,7 +91,7 @@ class CyberLauncher:
         tk.Label(authors_frame, text=" & ",
                 font=FONTS['small'],
                 fg=COLORS['text_dim'], bg=COLORS['bg_card']).pack(side='left')
-        tk.Label(authors_frame, text="Liav Wizman",
+        tk.Label(authors_frame, text="Liav Weizman",
                 font=FONTS['small_bold'],
                 fg=COLORS['accent_pink'], bg=COLORS['bg_card']).pack(side='left')
         
@@ -259,7 +259,7 @@ def main():
 ║    python main.py client    Start client directly         ║
 ║    python main.py --help    Show this help                ║
 ║                                                           ║
-║  Project by: Adir Buskila & Liav Wizman                  ║
+║  Project by: Adir Buskila & Liav Weizman                  ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝
             """)

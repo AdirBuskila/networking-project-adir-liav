@@ -1,7 +1,7 @@
 """
 ⚡ CYBER CHAT - Server Module
 Enhanced TCP Server with Admin Features
-Students: Adir Buskila & Liav Wizman
+Students: Adir Buskila & Liav Weizman
 """
 
 import socket
