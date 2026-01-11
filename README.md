@@ -40,7 +40,7 @@ This project demonstrates practical understanding of **TCP/IP networking** throu
 pip install pandas scapy
 
 # Run Jupyter notebook
-jupyter notebook tcp_ip_encapsulation.ipynb
+jupyter notebook networking-project-adir-liav\tcp_ip_encapsulation.ipynb
 ```
 
 ### Part 2: Chat Application
